@@ -1,0 +1,404 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hrocloud.tiangong</groupId>
+    <artifactId>filegw-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>filegw</name>
+	<url>http://maven.apache.org</url>
+
+	<modules>
+        <module>filegw-api</module>
+        <module>filegw-service</module>
+        <module>filegw-service-deploy</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+               <groupId>net.alchim31.maven</groupId>
+               <artifactId>scala-maven-plugin</artifactId>
+               <version>3.1.6</version>
+                <executions>
+                    <execution>
+                        <id>scala-compile-first</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-test-compile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+	<properties>
+        <maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
+        <maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
+        <maven-jar-plugin.version>2.3</maven-jar-plugin.version>
+        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
+        <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
+        <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
+
+        <fastjson.version>1.2.4</fastjson.version>
+        <apigw.version>0.1.0-SNAPSHOT</apigw.version>
+        <slf4j.version>1.7.10</slf4j.version>
+        <!-- device -->
+        <logback.version>1.1.1</logback.version>
+        <spring.version>4.3.4.RELEASE</spring.version>
+        <!-- device end -->
+
+        <dubbo.version>2.5.4.1-SNAPSHOT</dubbo.version>
+        <jetty.vesrion>8.0.4.v20111024</jetty.vesrion>
+
+        <mybatis.version>3.2.1</mybatis.version>
+        <mybatis.spring.version>1.2.0</mybatis.spring.version>
+        <mysql.connector.java.version>5.1.26</mysql.connector.java.version>
+        <druid.version>1.0.16.1</druid.version>
+
+        <jcl-over-slf4j.version>1.7.10</jcl-over-slf4j.version>
+        <log4j-over-slf4j.version>1.7.10</log4j-over-slf4j.version>
+
+        <zookeeper.version>3.4.5</zookeeper.version>
+        <zkclient.version>0.1</zkclient.version>
+
+
+
+        <apiutil_version>1.3.0</apiutil_version>
+        <filegw_version>1.5.17-SNAPSHOT</filegw_version>
+        <troy-client_version>1.4.0</troy-client_version>
+        <rocketmq_version>3.1.8</rocketmq_version>
+        <scala.version>2.10.4</scala.version>
+        <akka.version>2.3.3</akka.version>
+        <spray.version>1.3.1</spray.version>
+        <mokito_version>1.9.5</mokito_version>
+        <junit_version>4.12</junit_version>
+        <dubbo_version>2.5.3</dubbo_version>
+        <mybatis_version>3.2.5</mybatis_version>
+        <mybatis_spring_version>1.2.2</mybatis_spring_version>
+        <commons_dbcp_version>1.4</commons_dbcp_version>
+        <slf4j_version>1.7.6</slf4j_version>
+        <logback-classic_version>1.1.1</logback-classic_version>
+        <mysqlconnector_version>5.1.6</mysqlconnector_version>
+        <commons-lang3_version>3.3.1</commons-lang3_version>
+        <aspectj_version>1.7.4</aspectj_version>
+        <zkclient_version>0.1</zkclient_version>
+        <tair_version>2.3.4</tair_version>
+        <tfs_version>2.1.7</tfs_version>
+        <dom4j_version>1.6.1</dom4j_version>
+        <jaxen_version>1.1.6</jaxen_version>
+        <saxpath_version>1.0-FCS</saxpath_version>
+        <mokito_version>1.9.5</mokito_version>
+        <h2db_version>1.3.175</h2db_version>
+        <tddl_version>3.3.1</tddl_version>
+        <fastjson_version>1.1.40</fastjson_version>
+        <commons-pool2_version>2.4.2</commons-pool2_version>
+    </properties>
+	<dependencyManagement>
+		<dependencies>
+
+            <dependency>
+                <groupId>com.hrocloud.tiangong</groupId>
+                <artifactId>filegw-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hrocloud.tiangong</groupId>
+                <artifactId>filegw-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hrocloud.tiangong</groupId>
+                <artifactId>filegw-service-deploy</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hrocloud.apigw</groupId>
+                <artifactId>apigw-client</artifactId>
+                <version>${apigw.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo_version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>commons-logging</artifactId>
+                        <groupId>commons-logging</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.30</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+            <dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<!-- use this to transfer spring's log to slf4j -->
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>log4j-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>fluent-hc</artifactId>
+				<version>4.2.3</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.2.3</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient-cache</artifactId>
+				<version>4.2.3</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpcore</artifactId>
+				<version>4.2.3</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpmime</artifactId>
+				<version>4.2.3</version>
+			</dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>2.6</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>1.0.3</version>
+				<type>pom</type>
+			</dependency>
+
+			<dependency>
+				<groupId>com.github.sgroschupf</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>${zkclient_version}</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>log4j</artifactId>
+						<groupId>log4j</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>${scala.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-actor_2.10</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-slf4j_2.10</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.spray</groupId>
+                <artifactId>spray-can</artifactId>
+                <version>${spray.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.spray</groupId>
+                <artifactId>spray-http</artifactId>
+                <version>${spray.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.spray</groupId>
+                <artifactId>spray-httpx</artifactId>
+                <version>${spray.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.spray</groupId>
+                <artifactId>spray-routing</artifactId>
+                <version>${spray.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.spray</groupId>
+                <artifactId>spray-client</artifactId>
+                <version>${spray.version}</version>
+            </dependency>
+
+
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit_version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+             <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>commons-logging</artifactId>
+                        <groupId>commons-logging</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3_version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.17</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${zkclient.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2_version}</version>
+            </dependency>
+        </dependencies>
+	</dependencyManagement>
+</project>

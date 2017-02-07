@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly>
+    <id>release</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <outputDirectory>conf/</outputDirectory>
+            <directory>../filegw-service/src/main/resources</directory>
+            <includes>
+                <include>config.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>service.sh</include>
+                <include>start.sh</include>
+                <include>stop.sh</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+
+    <dependencySets>
+    <dependencySet>
+        <useProjectArtifact>true</useProjectArtifact>
+        <outputDirectory>lib</outputDirectory>
+        <scope>runtime</scope>
+    </dependencySet>
+    </dependencySets>
+
+
+</assembly>
