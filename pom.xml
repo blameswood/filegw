@@ -153,7 +153,7 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>dubbo</artifactId>
-                <version>${dubbo_version}</version>
+                <version>${dubbo.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>log4j</groupId>
